@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div onmousemove="changeCoor(event)" onmouseout="clearCoor()"></div>
+    <p id="demo"></p>
+    <script>
+        function changeCoor(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            var coor = "Coordinates: (" + x + "," + y + ")";
+            document.getElementById("demo").innerHTML = coor;
+        }
+        function clearCoor() {
+            document.getElementById("demo").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

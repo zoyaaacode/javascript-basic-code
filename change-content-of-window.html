@@ -1,0 +1,15 @@
+<html>
+<body>
+    <form>
+        Enter name: <input type = "text" onkeyup = "display()" id ="content">
+        <p id = "demo"></p>
+    </form>
+    <script>
+        function display()
+        {
+            var x = document.getElementById("content").value;
+            document.getElementById("demo").innerText = x;
+        }
+    </script>
+</body>
+</html>

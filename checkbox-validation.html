@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <head>
+        <title>Checkbox validation</title>
+    </head>
+    <body>
+        <p>Select a program: </p>
+        <input type="checkbox" name="check_print" value="Information Technology">Information Technology<br>
+        <input type="checkbox" name="check_print" value="Computer Science">Computer Science<br>
+        <input type="checkbox" name="check_print" value="Electronics and Telecommunications">Electronics and Telecommunications<br>
+        <input type="checkbox" name="check_print" value="Chemical Engineering">Chemical Engineering<br>
+        <input type="checkbox" name="check_print" value="Mechanical Engineering">Mechanical Engineering<br>
+        <p><input type="button" onclick='printChecked()' value="Validate"/></p>
+        You Selected:
+        <p id="y"></p>
+        <script>
+            function printChecked()
+            {
+				var items=document.getElementsByName('check_print');
+				var selectedItems="";
+				for(var i=0; i<items.length; i++)
+                {
+					if(items[i].type=='checkbox' && items[i].checked==true)
+						selectedItems+=items[i].value+"<br>";
+				}
+				
+               document.getElementById("y").innerHTML =selectedItems;  
+			}	
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <title>Quantifiers</title>
+</head>
+<body>
+    <p>Click the button to do a global search for a 70 followed by zero or one characters</p>
+    <button onclick = "myFunction()">Try it!</button>
+    <p id = "demo"></p>
+    <script>
+        function myFunction(){
+            var string = "7,700 or 7070";
+            var pattern1 = /70?/g;
+            var result = string.match(pattern1);
+            document.getElementById("demo").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

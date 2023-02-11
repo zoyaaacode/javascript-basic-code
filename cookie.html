@@ -1,0 +1,34 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+</head>  
+<body>  
+    <form name = "myform">
+        Enter department: <input type = "text" name = "dept"> <br><br>
+        <input type="button" value="setCookie" onclick="setCookie()">  
+        <input type="button" value="getCookie" onclick="getCookie()">  
+    </form>
+    <script>  
+    function setCookie()  
+    {   
+        var d = new Date();
+        with(document.myform)
+        {
+            document.cookie="Department: " +dept.value+"; expires =  Wed, 2 Nov 2022 12:00:00 GMT";
+            alert("Cookie written")
+        }
+    }  
+    function getCookie()  
+    {  
+        if(document.cookie.length!=0)  
+        {  
+        alert(document.cookie);  
+        }  
+        else  
+        {  
+        alert("Cookie not available");  
+        }  
+    }  
+    </script>  
+</body>  
+</html>

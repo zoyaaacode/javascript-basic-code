@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <head>
+        <title>Fibonacci series</title>
+    <head>
+        <body>
+            <script>
+                var num = parseInt(prompt("Enter number of terms: "));
+                var a = 0, b = 1, c;
+                document.write("Fibonacci series for " +num+ " terms: ");
+                for(var i = 1; i <= num; i++) {
+                    document.write("<br>"+a);
+                    c = a +b;
+                    a = b;
+                    b = c;
+                }
+            </script>
+        </body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <form onsubmit="validate(); return false">
+        Enter Aadhar card number: <input type = "text" id = "aadhar"> <br>
+        </form>
+        <script>
+            function validate()
+            {
+                var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+                var x = document.getElementById("aadhar").value;
+                if(regexp.test(x))
+                {
+                    alert("Valid Aadhar number");
+                }
+                else{
+                    alert("Invalid Aadhar number");
+                }
+            }
+        </script>
+    </body>
+</html>

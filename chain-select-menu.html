@@ -1,0 +1,81 @@
+<html>
+    <head><title>Chain select menu</title></head>
+    <script>
+    var deptObject = {
+        "IF": {
+            "Sem 1": ["English","ICT","Maths"],
+            "Sem 2": ["Programming in C","Basic Electronics", "Maths II"],
+            "Sem 3": ["Data structures", "Data communication","OOP"],
+            "Sem 4": ["Computer networks", "GUI development", "Software engineering"]
+        },
+        "CO": {
+            "Sem 1" : ["Basic science", "English", "Maths"],
+            "Sem 2": ["Basic electronics", "Computer hardware","Maths II"],
+            "Sem 3" : ["Computer graphics","Data structure", "Database management"],
+            "Sem 4" : ["Java", "Software engineering", "Microprocessors"]
+        }
+    }
+    window.onload = function () {
+        var seldept = document.getElementById("seldept"),
+            selsem = document.getElementById("selsem"),
+            selsub = document.getElementById("selsub");
+        for (var dept in deptObject) {
+            seldept.options[seldept.options.length] = new Option(dept, dept);
+        }
+        seldept.onchange = function () {  
+            selsem.length = 1; // remove all options bar first
+            selsub.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) {
+              selsem.options[0].text = "Please select dept first"
+              selsub.options[0].text = "Please select sem first"
+              return; // done   
+            }  
+            selsem.options[0].text = "Please select sem"
+            for (var sem in deptObject[this.value]) {
+                selsem.options[selsem.options.length] = new Option(sem, sem, sem, sem);
+            }
+            if (selsem.options.length==2) {
+              selsem.selectedIndex=1;
+              selsem.onchange();
+            }  
+            
+        }
+        seldept.onchange(); // reset in case page is reloaded
+        selsem.onchange = function () {
+            selsub.length = 1; // remove all options bar first
+            if (this.selectedIndex < 1) {
+              selsub.options[0].text = "Please select sem first"
+              return; // done   
+            }  
+            selsub.options[0].text = "Please select subject"
+            
+            var sub = deptObject[seldept.value][this.value];
+            for (var i = 0; i < sub.length; i++) {
+                selsub.options[selsub.options.length] = new Option(sub[i], sub[i], sub[i]);
+            }
+            if (selsub.options.length==2) {
+              selsub.selectedIndex=1;
+              selsub.onchange();
+            }  
+            
+        }
+    }
+    </script>
+    </body>
+    <form name="myform" id="myForm">
+        <select name="optone" id="seldept" size="1">
+            <option value="" selected="selected">Select dept</option>
+        </select>
+        <br>
+        <br>
+        <select name="opttwo" id="selsem" size="1">
+            <option value="" selected="selected">Please select dept first</option>
+        </select>
+        <br>
+        <br>
+        <select name="optthree" id="selsub" size="1">
+            <option value="" selected="selected">Please select sem first</option>
+        </select>
+    </form>
+    </body>
+    </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <head>
+        <title>Change attributes dynamically</title>
+        <style>
+            .redtext {
+                color: red;
+            }
+            .pinktext {
+                color: pink;
+            }
+            .bluetext {
+                color: blue;
+            }
+            .greentext {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Click the text to change color</h2>
+        <p id="red" onclick = "red()">Red</p>
+        <p id="green" onclick = "green()">Green</p>
+        <p id="blue" onclick = "blue()">Blue</p>
+        <p id="pink" onclick = "pink()">Pink</p>
+
+        <script>
+            function pink() {
+                document.getElementById("pink").setAttribute("class","pinktext");
+            }
+            function red() {
+                document.getElementById("red").setAttribute("class","redtext");
+            }
+            function green() {
+                document.getElementById("green").setAttribute("class","greentext");
+            }
+            function blue() {
+                document.getElementById("blue").setAttribute("class","bluetext");
+            }
+        </script>
+    </body>
+</html>

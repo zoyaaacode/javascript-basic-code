@@ -1,0 +1,46 @@
+<html >
+    <head>
+        <title>Banner Ads</title>
+        <style>
+            body{
+                justify-content: center;
+                text-align: center;
+            }
+            div{
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body onload="DisplayBanners()" >
+        <h3>Display rotating Banner with clickable link</h3>
+        <div class="banner">
+            <a href ="https://www.canva.com/" id="link"><img src="canva.webp" width="700"height="300" name="RotateBanner" /></a>
+        </div>
+        
+    </body>
+    <script>
+
+        let Banners = new Array('canva.webp','pinterest.webp','spotify.png');
+        let Bannersurl = new Array("https://www.canva.com/","https://in.pinterest.com/","https://open.spotify.com/");
+        let CurrentBanner = -1;
+        function DisplayBanners() 
+        {
+            if (document.images);
+            {
+                CurrentBanner++;
+                if (CurrentBanner == Banners.length) 
+                {
+                    CurrentBanner = 0;
+                }
+                document.RotateBanner.src= Banners[CurrentBanner];
+                if(document.anchors)
+                    document.getElementById("link").href= Bannersurl[CurrentBanner];
+                setTimeout("DisplayBanners()",2000);
+            }
+        }
+
+    </script>
+   
+</html>
